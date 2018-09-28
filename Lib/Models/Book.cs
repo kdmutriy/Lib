@@ -9,10 +9,10 @@ namespace Lib.Models
     {
         public int Id { get; set; }
         public string NameBook { get; set; }
-        public ICollection<Author> Authors { get; set; }
+        public List<Library> Libraries { get; set; }
         public Book()
         {
-            Authors = new List<Author>();
+            Libraries = new List<Library>();
         }
     }
 }
