@@ -16,23 +16,9 @@ namespace Lib.Controllers
         {
             db = context;
         }
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await db.Books.ToListAsync());
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            return View(db.Libraries);
         }
 
         public IActionResult Create()
@@ -40,9 +26,10 @@ namespace Lib.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Book book)
+        public async Task<IActionResult> Create(Library library)
         {
-            db.Books.Add(book);
+            db.Books.Add(library.Book);
+            db.Authors.Add(library.Author);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

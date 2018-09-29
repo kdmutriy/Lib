@@ -1,12 +1,12 @@
-﻿@model IEnumerable<Lib.Models.Book>
+﻿@model IEnumerable<Lib.Models.Library>
 @{
-    ViewBag.Title = "Все смартфоны";
+    ViewBag.Title = "Все книги";
 }
-<a asp-action="Create">Добавить модель</a>
+<a asp-action="Create">Добавить книгу</a>
 <table class="table">
-    <tr><td>Модель</td><td>Производитель</td><td>Цена</td></tr>
-    @foreach (var item in Model)
+    <tr><td>Книга</td><td>Автор</td></tr>
+    @foreach (Library item in Model)
     {
-        <tr><td>@item.NameBook</td></tr>
+        <tr><td>@item.Book?.NameBook</td><td>@item.Author?.NameAuthor</td></tr>
     }
 </table>
