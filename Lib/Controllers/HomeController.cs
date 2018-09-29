@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Lib.Models;
 using Microsoft.EntityFrameworkCore;
+using Lib.ViewModels;
 
 namespace Lib.Controllers
 {
@@ -18,7 +19,11 @@ namespace Lib.Controllers
         }
         public IActionResult Index()
         {
-            return View(db.Libraries);
+
+            //var courses = db.Books.Include(c => c.Libraries).ThenInclude(sc => sc.Author).ToList();
+            //var courses = db.Books.Include(c => c.Libraries).ThenInclude(sc => sc.Author).FirstOrDefault();
+            var courses = db.Libraries.Include(a => a.Author).Include(b => b.Book).ToList();
+            return View(courses);
         }
 
         public IActionResult Create()

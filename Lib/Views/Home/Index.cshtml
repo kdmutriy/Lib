@@ -5,8 +5,11 @@
 <a asp-action="Create">Добавить книгу</a>
 <table class="table">
     <tr><td>Книга</td><td>Автор</td></tr>
-    @foreach (Library item in Model)
+
+    @foreach (var l in Model)
     {
-        <tr><td>@item.BookId</td><td>@item.Book?.NameBook</td><td>@item.Author?.NameAuthor</td></tr>
+        <tr>           
+            <td>@l.Book.NameBook</td><td>@l.Author.NameAuthor</td>
+        </tr>
     }
 </table>
