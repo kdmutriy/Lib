@@ -7,6 +7,6 @@
     <tr><td>Книга</td><td>Автор</td></tr>
     @foreach (Library item in Model)
     {
-        <tr><td>@item.Book?.NameBook</td><td>@item.Author?.NameAuthor</td></tr>
+        <tr><td>@item.BookId</td><td>@item.Book?.NameBook</td><td>@item.Author?.NameAuthor</td></tr>
     }
 </table>

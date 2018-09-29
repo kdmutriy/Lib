@@ -26,11 +26,11 @@ namespace Lib.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(Library library)
+        public  IActionResult Create(Library library)
         {
             db.Books.Add(library.Book);
             db.Authors.Add(library.Author);
-            await db.SaveChangesAsync();
+            db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
